@@ -1,11 +1,3 @@
-/**
-* Estimates whether a number is odd or even
-*
-* @method odd_or_even
-* @param num {number} String to fix
-* @return {Boolean} Returns True on even number, False on odd
-*/
-
 //define global variables used across files
 var rint = 0,
     E_loc = 0,
@@ -37,8 +29,6 @@ var Enemy = function(x,y) {
     rint = Math.floor(Math.random() * (5 - 1 + 1)) + 1;
     //speed is between 325 and 650
     this.speed = (5-((5-rint)*0.5))*130;
-    E_loc = Math.floor(Math.random()*3);    //randomizes y position spawn location
-    this.y = e_loc_array[E_loc];            //randomizes y position spawn location
 };
 // Update the enemy's position
 Enemy.prototype.update = function(dt) {
@@ -99,36 +89,10 @@ char.prototype.update = function() {
     if (this.y < 70) {
         score++;
         scoreUpdate(score,gscore);
-        this.x = 202;
-        this.y = 403;
+        player.x = 202;
+        player.y = 403;
     }
 };
-
-char.prototype.checkCollisions = function() {
-    //collusion with enemies
-    for (var i = 0; i < allEnemies.length; i++) {
-        if (this.x < allEnemies[i].x + 90 && this.x + 90 > allEnemies[i].x && allEnemies[i].y + 80 > this.y
-            && this.y + 64 > allEnemies[i].y) {
-            score = 0;          //reset score
-            gscore = 0;         //reset gem score
-            deathCount++;
-            this.x = 202;
-            this.y = 403;
-            scoreUpdate(score,gscore);
-        }
-    }
-    //collusion with Gems
-    if (this.x < gems.x + 91 && this.x + 91 > gems.x && gems.y + 70 > this.y && this.y + 70 > gems.y) {
-        gscore++;
-        scoreUpdate(score,gscore);
-        x_loc = Math.floor(Math.random()*5);
-        y_loc = Math.floor(Math.random()*3);
-        var ran = y_loc;        //randomize gem's color has same index range of 0-2 as gem's Y location randomization
-        gems = gemarray[ran];
-        gems.x = roadloc_x[x_loc];
-        gems.y = roadloc_y[y_loc];
-    }
-}
 
 // define gem class and randomize spawn location
 var gem = function (){
@@ -180,18 +144,44 @@ function scoreUpdate(score1, score2) {
     ctx.fillText(score2,70,30);
 }
 
-//function to ensure player object creates only after char sprite menu selection
+function checkCollisions() {
+    //collusion with enemies
+    for (var i = 0; i < allEnemies.length; i++) {
+        if (player.x < allEnemies[i].x + 90 && player.x + 90 > allEnemies[i].x && allEnemies[i].y + 80 > player.y
+            && player.y + 64 > allEnemies[i].y) {
+            score = 0;  //reset score
+            gscore = 0; //reset gem score
+            deathCount++;
+            player.x = 202;
+            player.y = 403;
+            scoreUpdate(score,gscore);
+        }
+    }
+    //collusion with Gems
+    if (player.x < gems.x + 91 && player.x + 91 > gems.x && gems.y + 70 > player.y && player.y + 70 > gems.y) {
+        gscore++;
+        scoreUpdate(score,gscore);
+        x_loc = Math.floor(Math.random()*5);
+        y_loc = Math.floor(Math.random()*3);
+        var ran = y_loc; //randomize gem's color has same index range of 0-2 as gem's Y location randomization
+        gems = gemarray[ran];
+        gems.x = roadloc_x[x_loc];
+        gems.y = roadloc_y[y_loc];
+    }
+}
+
+//function ensures to create player object only after player sprite menu selection
 function playerrend() {
     var player = new char(202,403);
     this.player=player;
 }
 
 //create enemies
-var e_loc_array = [60, 145, 230];
 var enemy1 = new Enemy(-101,60);
 var enemy2 = new Enemy(-101,145);
 var enemy3 = new Enemy(-101,230);
 var allEnemies = [enemy1,enemy2,enemy3];
+var e_loc_array = [60, 145, 230];
 enemy1.sprite = 'images/enemy-bug.png';
 enemy2.sprite = 'images/Rock.png';
 enemy3.sprite = 'images/Key.png';

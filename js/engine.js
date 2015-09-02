@@ -4,8 +4,7 @@ var Engine = (function(global) {
         win = global.window,
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
-        lastTime,
-        go = 0;
+        lastTime;
 
     canvas.width = 505;
     canvas.height = 606;
@@ -24,13 +23,13 @@ var Engine = (function(global) {
         update(dt);
 
         //Game over fade in screen
-        if (deathCount > 1) {
+        if (deathCount > 4) {
             ctx.globalAlpha = 0;
             var ggfadein = setInterval(function(){
-                ctx.globalAlpha += .01;
+                ctx.globalAlpha += 0.01;
                 ctx.clearRect(0,0,505,606);
                 ctx.drawImage(Resources.get('images/game over.png'),0,0);
-                if (ctx.globalAlpha > .99) {
+                if (ctx.globalAlpha > 0.99) {
                     console.log("cleared");  //TODO figure out interval run duplication issue.
                     clearInterval(ggfadein);
                 }
@@ -40,9 +39,9 @@ var Engine = (function(global) {
             setTimeout(function() {
                 var ggfadeout = setInterval(function(){
                 ctx.clearRect(0,0,505,606);
-                ctx.globalAlpha -= .01;
+                ctx.globalAlpha -= 0.01;
                 ctx.drawImage(Resources.get('images/game over.png'),0,0);
-                if (ctx.globalAlpha < .015) {
+                if (ctx.globalAlpha < 0.015) {
                     rint = 0,
                     E_loc = 0,
                     score = 0,
@@ -59,7 +58,7 @@ var Engine = (function(global) {
         }
 
         //continue loop until game over deathcount is reached
-        if (deathCount < 2) {
+        if (deathCount < 5) {
             render();
 
             // Set our lastTime variable which is used to determine the time delta
@@ -79,7 +78,7 @@ var Engine = (function(global) {
             ctx.clearRect(0,0,505,606);
             fadeCtx.drawImage(Resources.get('images/Prologue.png'),0,0);
             fadeCtx.globalAlpha += 0.01;
-            if (fadeCtx.globalAlpha > .99) {
+            if (fadeCtx.globalAlpha > 0.99) {
                 clearInterval(interval);
             }
         },20);
@@ -137,7 +136,7 @@ var Engine = (function(global) {
     //updates Entities, checks collisions, and render all objects
     function update(dt) {
         updateEntities(dt);
-        checkCollisions();
+        player.checkCollisions();
     }
 
     /* This is called by the update function  and loops through all of the
