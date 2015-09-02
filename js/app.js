@@ -1,10 +1,3 @@
-/**
-* Estimates whether a number is odd or even
-*
-* @method odd_or_even
-* @param num {number} String to fix
-* @return {Boolean} Returns True on even number, False on odd
-*/
 
 //define global variables used across files
 var rint = 0,
@@ -128,7 +121,7 @@ char.prototype.checkCollisions = function() {
         gems.x = roadloc_x[x_loc];
         gems.y = roadloc_y[y_loc];
     }
-}
+};
 
 // define gem class and randomize spawn location
 var gem = function (){
