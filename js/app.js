@@ -1,39 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-// Enemies our player must avoid
-var Enemy = function() {
-=======
-=======
->>>>>>> master
-function Animal(name, numLegs) {
-    this.name = name;
-    this.numLegs = numLegs;
-    this.isAlive = true;
-}
-function Penguin(name) {
-    this.name = name;
-    this.numLegs = 2;
-}
-function Emperor(name) {
-    this.saying = "Waddle waddle";
-}
 
-// set up the prototype chain
-Penguin.prototype = new Animal();
-Emperor.prototype = new Penguin();
-
-var myEmperor = new Emperor("Jules");
-console.log(myEmperor);
-// console.log(myEmperor.name); // should print "Waddle waddle"
-console.log(myEmperor.numLegs); // should print 2
-console.log(myEmperor.isAlive); // should print true
-
-
-
-
-=======
->>>>>>> master
 //define global variables used across files
 var rint = 0,
     E_loc = 0,
@@ -53,17 +18,13 @@ var gems = {};
 
 // Enemies our player must avoid
 var Enemy = function(x,y) {
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
+
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
-<<<<<<< HEAD
-<<<<<<< HEAD
+
     this.sprite = 'images/enemy-bug.png';
 };
 
@@ -73,9 +34,7 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-=======
-=======
->>>>>>> master
+
     // this.sprite = 'images/enemy-bug.png';
     this.x=x;
     this.y=y;
@@ -97,10 +56,6 @@ Enemy.prototype.update = function(dt) {
         this.y = e_loc_array[E_loc];
     }
     this.x+=this.speed*dt;
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
 };
 
 // Draw the enemy on the screen, required method for game
@@ -108,8 +63,6 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
@@ -123,9 +76,6 @@ Enemy.prototype.render = function() {
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
-=======
-=======
->>>>>>> master
 //player class, image depends on menu selection
 var Char = function(x,y) {
     if (selected == 1) {
@@ -282,10 +232,6 @@ gems = gemarray[ran];
 nice = new gj(170,0);
 
 // Listen for keypresses for the game
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
         37: 'left',
@@ -294,12 +240,7 @@ document.addEventListener('keyup', function(e) {
         40: 'down'
     };
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     player.handleInput(allowedKeys[e.keyCode]);
-=======
-=======
->>>>>>> master
     if (clickConfirm == 1) {//in-game key input, initiates only after char selection "enter" key is pressed.
         player.handleInput(allowedKeys[e.keyCode]);
     }
@@ -312,8 +253,4 @@ document.addEventListener('keyup', function(e) {
     if (e.which == 13 && selected !== 0) {//enter key confirmation
         clickConfirm = 1;
     }
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
 });
