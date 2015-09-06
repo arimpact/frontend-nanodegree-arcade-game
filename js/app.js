@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Enemies our player must avoid
 var Enemy = function() {
 =======
@@ -31,6 +32,8 @@ console.log(myEmperor.isAlive); // should print true
 
 
 
+=======
+>>>>>>> master
 //define global variables used across files
 var rint = 0,
     E_loc = 0,
@@ -247,7 +250,7 @@ function scoreUpdate(score1, score2) {
 
 //function to ensure player object creates only after char sprite menu selection
 function playerrend() {
-    var player = new char(202,403);
+    var player = new Char(202,403);
     this.player=player;
 }
 
