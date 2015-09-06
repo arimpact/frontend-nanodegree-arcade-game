@@ -1,29 +1,3 @@
-function Animal(name, numLegs) {
-    this.name = name;
-    this.numLegs = numLegs;
-    this.isAlive = true;
-}
-function Penguin(name) {
-    this.name = name;
-    this.numLegs = 2;
-}
-function Emperor(name) {
-    this.saying = "Waddle waddle";
-}
-
-// set up the prototype chain
-Penguin.prototype = new Animal();
-Emperor.prototype = new Penguin();
-
-var myEmperor = new Emperor("Jules");
-console.log(myEmperor);
-// console.log(myEmperor.name); // should print "Waddle waddle"
-console.log(myEmperor.numLegs); // should print 2
-console.log(myEmperor.isAlive); // should print true
-
-
-
-
 //define global variables used across files
 var rint = 0,
     E_loc = 0,
@@ -200,7 +174,7 @@ function scoreUpdate(score1, score2) {
 
 //function to ensure player object creates only after char sprite menu selection
 function playerrend() {
-    var player = new char(202,403);
+    var player = new Char(202,403);
     this.player=player;
 }
 
