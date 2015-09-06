@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* Engine.js
  * This file provides the game loop functionality (update entities and render),
  * draws the initial game board on the screen, and then calls the update and
@@ -24,6 +25,10 @@ var Engine = (function(global) {
 var Engine = (function(global) {
     //predefined global variables
 >>>>>>> master
+=======
+var Engine = (function(global) {
+    //predefined global variables
+>>>>>>> master
     var doc = global.document,
         win = global.window,
         canvas = doc.createElement('canvas'),
@@ -38,6 +43,7 @@ var Engine = (function(global) {
      * and handles properly calling the update and render methods.
      */
     function main() {
+<<<<<<< HEAD
 <<<<<<< HEAD
         /* Get our time delta information which is required if your game
          * requires smooth animation. Because everyone's computer processes
@@ -88,6 +94,8 @@ var Engine = (function(global) {
         updateEntities(dt);
         // checkCollisions();
 =======
+=======
+>>>>>>> master
 
         //Get time delta information which is required for movement animation
 
@@ -211,6 +219,9 @@ var Engine = (function(global) {
     function update(dt) {
         updateEntities(dt);
         player.checkCollisions();
+<<<<<<< HEAD
+>>>>>>> master
+=======
 >>>>>>> master
     }
 
@@ -267,8 +278,11 @@ var Engine = (function(global) {
             }
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> master
 =======
 >>>>>>> master
         renderEntities();
@@ -277,7 +291,11 @@ var Engine = (function(global) {
     /* This function is called by the render function and is called on each game
      * tick. It's purpose is to then call the render functions you have defined
 <<<<<<< HEAD
+<<<<<<< HEAD
      * on your enemy and player entities within app.js
+=======
+     * on your enemy, player, gem and "NICE" entities within app.js
+>>>>>>> master
 =======
      * on your enemy, player, gem and "NICE" entities within app.js
 >>>>>>> master
@@ -289,6 +307,7 @@ var Engine = (function(global) {
         allEnemies.forEach(function(enemy) {
             enemy.render();
         });
+<<<<<<< HEAD
 <<<<<<< HEAD
 
         player.render();
@@ -302,11 +321,16 @@ var Engine = (function(global) {
         // noop
     }
 =======
+=======
+>>>>>>> master
         player.render();
         gems.render();
         nice.render();
     }
 
+<<<<<<< HEAD
+>>>>>>> master
+=======
 >>>>>>> master
 
     /* Go ahead and load all of the images we know we're going to need to
@@ -319,8 +343,11 @@ var Engine = (function(global) {
         'images/grass-block.png',
         'images/enemy-bug.png',
 <<<<<<< HEAD
+<<<<<<< HEAD
         'images/char-boy.png'
 =======
+=======
+>>>>>>> master
         'images/char-boy.png',
         'images/Gem Blue.png',
         'images/Gem Green.png',
@@ -335,6 +362,9 @@ var Engine = (function(global) {
         'images/char-horn-girl.png',
         'images/arrow_up1.png',
         'images/game over.png'
+<<<<<<< HEAD
+>>>>>>> master
+=======
 >>>>>>> master
     ]);
     Resources.onReady(init);
@@ -345,7 +375,14 @@ var Engine = (function(global) {
      */
     global.ctx = ctx;
 <<<<<<< HEAD
+<<<<<<< HEAD
 })(this);
+=======
+    global.selected=selected;
+})(this);
+
+window.addEventListener('load', Engine);
+>>>>>>> master
 =======
     global.selected=selected;
 })(this);
