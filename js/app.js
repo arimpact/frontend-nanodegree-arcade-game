@@ -1,3 +1,28 @@
+function Animal(name, numLegs) {
+    this.name = name;
+    this.numLegs = numLegs;
+    this.isAlive = true;
+}
+function Penguin(name) {
+    this.name = name;
+    this.numLegs = 2;
+}
+function Emperor(name) {
+    this.saying = "Waddle waddle";
+}
+
+// set up the prototype chain
+Penguin.prototype = new Animal();
+Emperor.prototype = new Penguin();
+
+var myEmperor = new Emperor("Jules");
+console.log(myEmperor);
+// console.log(myEmperor.name); // should print "Waddle waddle"
+console.log(myEmperor.numLegs); // should print 2
+console.log(myEmperor.isAlive); // should print true
+
+
+
 
 //define global variables used across files
 var rint = 0,
@@ -52,7 +77,7 @@ Enemy.prototype.render = function() {
 };
 
 //player class, image depends on menu selection
-var char = function(x,y) {
+var Char = function(x,y) {
     if (selected == 1) {
         this.sprite = 'images/char-boy.png';
     }
@@ -67,7 +92,7 @@ var char = function(x,y) {
 };
 
 //store new character position based on keyboard input
-char.prototype.handleInput = function (input) {
+Char.prototype.handleInput = function (input) {
     if (input == 'left' && this.x > 0) {
         this.x = this.x - 101;
     }
@@ -83,12 +108,12 @@ char.prototype.handleInput = function (input) {
 };
 
 //render player
-char.prototype.render = function() {
+Char.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
 //reset player location after reaching the water
-char.prototype.update = function() {
+Char.prototype.update = function() {
     if (this.y < 70) {
         score++;
         scoreUpdate(score,gscore);
@@ -97,7 +122,7 @@ char.prototype.update = function() {
     }
 };
 
-char.prototype.checkCollisions = function() {
+Char.prototype.checkCollisions = function() {
     //collusion with enemies
     for (var i = 0; i < allEnemies.length; i++) {
         if (this.x < allEnemies[i].x + 90 && this.x + 90 > allEnemies[i].x && allEnemies[i].y + 80 > this.y
