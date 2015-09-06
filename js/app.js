@@ -1,4 +1,3 @@
-
 //define global variables used across files
 var rint = 0,
     E_loc = 0,
@@ -18,23 +17,11 @@ var gems = {};
 
 // Enemies our player must avoid
 var Enemy = function(x,y) {
-
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
-
-    this.sprite = 'images/enemy-bug.png';
-};
-
-// Update the enemy's position, required method for game
-// Parameter: dt, a time delta between ticks
-Enemy.prototype.update = function(dt) {
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
-
     // this.sprite = 'images/enemy-bug.png';
     this.x=x;
     this.y=y;
@@ -63,19 +50,6 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
-
-
-// Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
-
-
-
-// This listens for key presses and sends the keys to your
-// Player.handleInput() method. You don't need to modify this.
 //player class, image depends on menu selection
 var Char = function(x,y) {
     if (selected == 1) {
@@ -240,7 +214,6 @@ document.addEventListener('keyup', function(e) {
         40: 'down'
     };
 
-    player.handleInput(allowedKeys[e.keyCode]);
     if (clickConfirm == 1) {//in-game key input, initiates only after char selection "enter" key is pressed.
         player.handleInput(allowedKeys[e.keyCode]);
     }
