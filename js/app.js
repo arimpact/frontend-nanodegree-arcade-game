@@ -185,8 +185,8 @@ var enemy2 = new Enemy(-101,145);
 var enemy3 = new Enemy(-101,230);
 var allEnemies = [enemy1,enemy2,enemy3];
 enemy1.sprite = 'images/enemy-bug.png';
-enemy2.sprite = 'images/Rock.png';
-enemy3.sprite = 'images/Key.png';
+enemy2.sprite = 'images/enemy-bug.png';
+enemy3.sprite = 'images/enemy-bug.png';
 
 
 //gem and randomizing first gem type on screen.
